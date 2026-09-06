@@ -43,7 +43,7 @@ Adding more weight on the bar isn't the only way to level up. You've got [option
 1. **Mechanical tension is king:** Lifting heavy-enough stuff [close to failure](https://pmc.ncbi.nlm.nih.gov/articles/PMC12927080/) is what signals your muscles to grow. Old-school myths like "feeling the burn" from lactic acid or getting a huge pump don't actually drive long-term muscle gains on their own.
 2. **Volume rules all:** Research consistently shows that total volume (how many hard sets you hit near failure per muscle group per week) is the [#1 variable](https://pmc.ncbi.nlm.nih.gov/articles/PMC9302196/) tied to muscle growth.
 3. **Stop doing 10-second reps:** Controlled reps are great, but intentionally moving at a snail's pace (like 10 seconds per rep) is actually [worse](https://pubmed.ncbi.nlm.nih.gov/25601394/) for building muscle than standard, controlled reps.
-4. **Fast reps are fine, just hard to track:** Lifting explosively recruits a lot of muscle fibers, but unless you're an Olympic lifter using specialized velocity-tracking sensors on the bar, it's tough to measure if you're actually getting faster week to week.
+4. **Fast reps are fine, just hard to track:** Lifting explosively recruits a lot of muscle fibers, but unless you're an Olympic lifter using specialized velocity-tracking sensors on the bar, it's [tough](https://www.reddit.com/r/explainlikeimfive/comments/1vxmxxb/comment/p5qucd1/) to measure if you're actually getting faster week to week.
 
 ## Recommendations based on your goal
 
