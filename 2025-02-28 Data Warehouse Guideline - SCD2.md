@@ -3,21 +3,21 @@
 <!-- toc-gitlab:start mode=full -->
 ## Contents<br>
 1. [Background](#background)
-2. [Included knowledge](#included-knowledge)
-3. [Implementation notes](#implementation-notes)
-4. [What is an SCD2 table?](#what-is-an-scd2-table)
-5. [How to use an SCD2 table?](#how-to-use-an-scd2-table)
+1. [Included knowledge](#included-knowledge)
+1. [Implementation notes](#implementation-notes)
+1. [What is an SCD2 table?](#what-is-an-scd2-table)
+1. [How to use an SCD2 table?](#how-to-use-an-scd2-table)
 	1. [Use case 1: Getting the current state of an entity](#use-case-1-getting-the-current-state-of-an-entity)
-	2. [Use case 2: Getting the state of an entity during a specific timestamp](#use-case-2-getting-the-state-of-an-entity-during-a-specific-timestamp)
-6. [How to develop an SCD2 table?](#how-to-develop-an-scd2-table)
+	1. [Use case 2: Getting the state of an entity during a specific timestamp](#use-case-2-getting-the-state-of-an-entity-during-a-specific-timestamp)
+1. [How to develop an SCD2 table?](#how-to-develop-an-scd2-table)
 	1. [Use case 1: There is 1 source; tracking 1 column; the data is clean](#use-case-1-there-is-1-source-tracking-1-column-the-data-is-clean)
-	2. [Use case 2: There is 1 source; tracking 1 column; other columns are updated](#use-case-2-there-is-1-source-tracking-1-column-other-columns-are-updated)
-	3. [Use case 3: There is 1 source; tracking > 1 columns; other columns are updated](#use-case-3-there-is-1-source-tracking--1-columns-other-columns-are-updated)
-	4. [Use case 4: There is 1 source; tracking > 1 columns; there is duplicated begin_time](#use-case-4-there-is-1-source-tracking--1-columns-there-is-duplicated-begin_time)
-	5. [Use case 5: There is 1 source; tracking > 1 columns; there is hard-deletion](#use-case-5-there-is-1-source-tracking--1-columns-there-is-hard-deletion)
-	6. [Use case 6: There are > 1 sources](#use-case-6-there-are--1-sources)
-	7. [Use case 7: Incremental processing for SCD2 table](#use-case-7-incremental-processing-for-scd2-table)
-7. [Summary](#summary)
+	1. [Use case 2: There is 1 source; tracking 1 column; other columns are updated](#use-case-2-there-is-1-source-tracking-1-column-other-columns-are-updated)
+	1. [Use case 3: There is 1 source; tracking > 1 columns; other columns are updated](#use-case-3-there-is-1-source-tracking--1-columns-other-columns-are-updated)
+	1. [Use case 4: There is 1 source; tracking > 1 columns; there is duplicated begin_time](#use-case-4-there-is-1-source-tracking--1-columns-there-is-duplicated-begin_time)
+	1. [Use case 5: There is 1 source; tracking > 1 columns; there is hard-deletion](#use-case-5-there-is-1-source-tracking--1-columns-there-is-hard-deletion)
+	1. [Use case 6: There are > 1 sources](#use-case-6-there-are--1-sources)
+	1. [Use case 7: Incremental processing for SCD2 table](#use-case-7-incremental-processing-for-scd2-table)
+1. [Summary](#summary)
 <!-- toc-gitlab:end -->
 
 ## Background
@@ -744,7 +744,7 @@ So in addition to `user_master` (ingested using CDC due to the possibility of ha
 
 | 🔑 appeal_history_id | appeal_id | user_id | status   | create_time         | update_time         |
 | -------------------- | --------- | ------- | -------- | ------------------- | ------------------- |
-| 1                    | 1         | 1       | INITIAL | 2024-10-13 06:00:00 | 2024-10-13 06:00:00 |
+| 1                    | 1         | 1       | INITIAL  | 2024-10-13 06:00:00 | 2024-10-13 06:00:00 |
 | 2                    | 1         | 1       | ON_CHECK | 2024-10-13 06:00:00 | 2024-10-13 07:00:00 |
 | 3                    | 1         | 1       | ACCEPTED | 2024-10-13 06:00:00 | 2024-10-13 08:00:00 |
 
