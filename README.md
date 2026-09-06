@@ -2,4 +2,4 @@
 
 Welcome to Vincent's publications! Here are some articles I have written:
 
-1. [2025-02-28 Data Warehouse Guideline - SCD2](2025-02-28 Data Warehouse Guideline - SCD2.md)
+1. [2025-02-28 Data Warehouse Guideline - SCD2](<2025-02-28 Data Warehouse Guideline - SCD2.md>)
