@@ -1,5 +1,7 @@
+# 2025-02-28 Data Warehouse Guideline - SCD2
+
 <!-- toc-gitlab:start mode=full -->
-# Contents<br>
+## Contents<br>
 1. [Background](#background)
 2. [Included knowledge](#included-knowledge)
 3. [Implementation notes](#implementation-notes)
@@ -18,7 +20,7 @@
 7. [Summary](#summary)
 <!-- toc-gitlab:end -->
 
-# Background
+## Background
 
 A [Slowly Changing Dimension Type-2](https://en.wikipedia.org/wiki/Slowly_changing_dimension#Type_2:_add_new_row) (SCD2) table plays a crucial role in [dimensional modeling](https://en.wikipedia.org/wiki/Dimensional_modeling) by tracking historical changes of an entity. However, this added complexity makes both its development and usage more challenging than regular tables.
 
@@ -31,7 +33,7 @@ This article serves as a comprehensive guide for both users and developers, cove
 
 All use cases have been production-tested in [SparkSQL 3.2.1](https://archive.apache.org/dist/spark/docs/3.2.1/sql-ref-functions-builtin.html) during [my time](https://www.linkedin.com/in/vincentius-timothy/) as a Data Engineer at Tokopedia | ByteDance.
 
-# Included knowledge
+## Included knowledge
 
 This section covers these foundational topics to help you understand, use, and develop an SCD2 table.
 
@@ -48,7 +50,7 @@ To develop an SCD2 table, in addition to the above, we'll also explore:
 4. SQL: Creating and using `STRUCT()`.
 5. SQL: Union operations, especially `UNION DISTINCT` and `UNION ALL`.
 
-# Implementation notes
+## Implementation notes
 
 All queries are shown in [GoogleSQL](https://cloud.google.com/bigquery/docs/introduction-sql). The [SparkSQL 3.2.1](https://archive.apache.org/dist/spark/docs/3.2.1/sql-ref-functions-builtin.html) implementation is mostly identical; the key difference is null-safe equality operator:
 
@@ -60,7 +62,7 @@ In each query, there is a note on whether the query is identical between both di
 
 All queries are ready to execute, as they include the necessary source data.
 
-# What is an SCD2 table?
+## What is an SCD2 table?
 
 An SCD2 table is a type of [dimension table](https://en.wikipedia.org/wiki/Dimension_\(data_warehouse\)#Dimension_table) that tracks historical changes of an entity. Consider the following scenario about a user.
 
@@ -120,11 +122,11 @@ What happened to this table?
 
 > An SCD2 table stores historical data. It is enriched with `begin_time`, `end_time`, and `is_current` to accurately pinpoint when a state exactly happened.
 
-# How to use an SCD2 table?
+## How to use an SCD2 table?
 
 There are two use cases of using an SCD2 table. They are mutually-exclusive, so feel free to start from any use case that suits your needs.
 
-## Use case 1: Getting the current state of an entity
+### Use case 1: Getting the current state of an entity
 
 An analyst wants to know the current state of the user like this:
 
@@ -159,7 +161,7 @@ What happened in this query?
 
 > To get the current state of an entity from an SCD2 table, use filter `is_current`.
 
-## Use case 2: Getting the state of an entity during a specific timestamp
+### Use case 2: Getting the state of an entity during a specific timestamp
 
 Consider a table that stores orders like this:
 
@@ -225,11 +227,11 @@ What happened in this query?
 
 > To get the state of an entity stored on an SCD2 table during an event, make sure to join not only the business key but also `begin_time` and `end_time`.
 
-# How to develop an SCD2 table?
+## How to develop an SCD2 table?
 
 The development of an SCD2 table is presented as increasingly complex use cases, where the concept in use case-[n] will be used as a foundation in use case-[n+1]. Because of this, start from use case 1.
 
-## Use case 1: There is 1 source; tracking 1 column; the data is clean
+### Use case 1: There is 1 source; tracking 1 column; the data is clean
 
 Let's consider the source:
 
@@ -291,7 +293,7 @@ Notes:
 
 1. You must make sure that `begin_time` never contains `NULL` values nor duplicate values. (Why? Please deduce it as an exercise.) The query above assumes `update_time` doesn't contain `NULL` values—if it does, a viable strategy is to use `COALESCE(update_time, create_time) AS begin_time`.
 
-## Use case 2: There is 1 source; tracking 1 column; other columns are updated
+### Use case 2: There is 1 source; tracking 1 column; other columns are updated
 
 Let's consider the source, now with two additional columns: `address` and `bank`.
 
@@ -398,7 +400,7 @@ Notes:
 
 1. Different SQL dialect might implement null-safe equal operator differently. Depending on your SQL dialect, here's another popular way to do this: `NOT(address <=> lag_address)`.
 
-## Use case 3: There is 1 source; tracking > 1 columns; other columns are updated
+### Use case 3: There is 1 source; tracking > 1 columns; other columns are updated
 
 Let's consider the same condition as use case 2, but we want to track both `status` and `address`, and we don't care about `bank`. Here's the expected result:
 
@@ -464,7 +466,7 @@ What happened in this query?
 1. `LAG(STRUCT(status, address))`: We want to get the previous `status` and `address`, but we don't want to invoke multiple `LAG()` functions for code readability and maintenance. So the solution is to wrap all columns we want to track inside `STRUCT()`.
 2. `WHERE`: We want to pick the first row, as well as changed rows in the tracked columns. Feel free to verify the logic with the same approach as use case 2.
 
-## Use case 4: There is 1 source; tracking > 1 columns; there is duplicated begin_time
+### Use case 4: There is 1 source; tracking > 1 columns; there is duplicated begin_time
 
 Let's start from use case 2, now with an additional rows:
 
@@ -565,7 +567,7 @@ Notes:
 
 1. Not all tables might have `user_history_id`. In this case, find another column that can be used to order `lag_info`. For example, if you use [change data capture](https://en.wikipedia.org/wiki/Change_data_capture) (CDC), you can pick the time when the change was detected (e.g., on Debezium, you can use `__source_ts_ms`).
 
-## Use case 5: There is 1 source; tracking > 1 columns; there is hard-deletion
+### Use case 5: There is 1 source; tracking > 1 columns; there is hard-deletion
 
 Let's start from use case 2, but Jimothan was detected committing fraud and was frozen at 2024-10-13 01:00:00.
 
@@ -710,7 +712,7 @@ What happened in this query?
 	3. The row before hard-deletion will be taken twice: One as non hard-deleted row (part 1), and another as the values for hard-deleted row (part 2).
 4. Main query: Normally `SELECT *` is not recommended, but permitted here since we're in full control of the selected rows from the CTE.
 
-## Use case 6: There are > 1 sources
+### Use case 6: There are > 1 sources
 
 Let's start from use case 5. However:
 
@@ -955,7 +957,7 @@ SELECT
 	...
 ```
 
-## Use case 7: Incremental processing for SCD2 table
+### Use case 7: Incremental processing for SCD2 table
 
 So far, we have been processing the full table of `user_master` (ingested using CDC) and `appeal_history` (ingested using direct connection). However, as time goes on, the table will contain more data and the compute will get heavier. A solution is to process SCD2 table incrementally; that is, take the previous state of the SCD2 table ("base"), then only process the source data after the previous state ("delta"). After that, union base and delta get the full SCD2 table.
 
@@ -1208,7 +1210,7 @@ Notes:
 
 1. In the example above, dates such as 2024-10-13 00:00:00 and 2024-10-14 00:00:00 are hardcoded. In the real production pipeline, use variables (e.g., [Airflow variables](https://airflow.apache.org/docs/apache-airflow/stable/templates-ref.html#variables)) for filtering the date, which then will be rendered as actual dates. This will make it easier for backfilling purposes.
 
-# Summary
+## Summary
 
 1. This article serves as a guideline for both using and developing SCD2 tables.
 2. An SCD2 table stores historical data. It is enriched with `begin_time`, `end_time`, and `is_current` to accurately pinpoint when a state exactly happened.
