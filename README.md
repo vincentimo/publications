@@ -6,3 +6,4 @@ Welcome to Vincent's publications! Here are some articles I have written:
 2. [2019-04-07 Preventing Integration Problems with Continuous Integration (CI)](<2019-04-07 Preventing Integration Problems with Continuous Integration (CI).md>)
 3. [2025-02-28 Data Warehouse Guideline - SCD2](<2025-02-28 Data Warehouse Guideline - SCD2.md>)
 4. [2025-03-28 Setup Generative AI Locally on Windows and macOS](<2025-03-28 Setup Generative AI Locally on Windows and macOS.md>)
+5. [2026-08-25 Progressive Overload](<2026-08-25 Progressive Overload.md>)
