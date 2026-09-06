@@ -1,6 +1,6 @@
 # 2025-03-28 Setup Generative AI Locally on Windows and macOS
 
-Migrated from Appflowy: Original link: https://appflowy.com/41518cd2-22c3-48b9-bd3e-9ffeac63d8d0/Setup-generative-AI-locally-on-Windows-and-macOS-bb216062-5cd1-4e5b-877c-d8703e8e93db
+Migrated from [Appflowy](https://appflowy.com/41518cd2-22c3-48b9-bd3e-9ffeac63d8d0/Setup-generative-AI-locally-on-Windows-and-macOS-bb216062-5cd1-4e5b-877c-d8703e8e93db).
 
 <!-- toc-gitlab:start mode=full -->
 ## Contents<br>
