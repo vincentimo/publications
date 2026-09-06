@@ -744,7 +744,7 @@ So in addition to `user_master` (ingested using CDC due to the possibility of ha
 
 | 🔑 appeal_history_id | appeal_id | user_id | status   | create_time         | update_time         |
 | -------------------- | --------- | ------- | -------- | ------------------- | ------------------- |
-| 1                    | 1         | 1       | ININTIAL | 2024-10-13 06:00:00 | 2024-10-13 06:00:00 |
+| 1                    | 1         | 1       | INITIAL | 2024-10-13 06:00:00 | 2024-10-13 06:00:00 |
 | 2                    | 1         | 1       | ON_CHECK | 2024-10-13 06:00:00 | 2024-10-13 07:00:00 |
 | 3                    | 1         | 1       | ACCEPTED | 2024-10-13 06:00:00 | 2024-10-13 08:00:00 |
 
