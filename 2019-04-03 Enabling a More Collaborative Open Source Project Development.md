@@ -1,6 +1,6 @@
 # 2019-04-03 Enabling a More Collaborative Open Source Project Development
 
-Migrated from [Medium](https://medium.com/@vincentimo/enabling-a-more-collaborative-open-source-project-development-974b03ece712).
+By [Vincentius Timothy](https://registry.jsonresume.org/vincentimo). Originally published on [Medium](https://medium.com/@vincentimo/enabling-a-more-collaborative-open-source-project-development-974b03ece712).
 
 <!-- toc-gitlab:start mode=full -->
 ## Contents<br>

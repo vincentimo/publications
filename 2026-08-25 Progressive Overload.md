@@ -1,5 +1,7 @@
 # 2026-08-25 Progressive Overload
 
+By [Vincentius Timothy](https://registry.jsonresume.org/vincentimo).
+
 <!-- toc-gitlab:start mode=full -->
 ## Contents<br>
 1. [Why your body hates building muscle](#why-your-body-hates-building-muscle)

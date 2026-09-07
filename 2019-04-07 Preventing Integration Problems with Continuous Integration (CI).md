@@ -1,6 +1,6 @@
 # 2019-04-07 Preventing Integration Problems with Continuous Integration (CI)
 
-Migrated from [Medium](https://medium.com/@vincentimo/preventing-integration-problems-with-continuous-integration-ci-1c2094087eba).
+By [Vincentius Timothy](https://registry.jsonresume.org/vincentimo). Originally published on [Medium](https://medium.com/@vincentimo/preventing-integration-problems-with-continuous-integration-ci-1c2094087eba).
 
 <!-- toc-gitlab:start mode=full -->
 ## Contents<br>
