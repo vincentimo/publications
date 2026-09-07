@@ -1,6 +1,6 @@
 # 2025-02-28 Data Warehouse Guideline - SCD2
 
-By [Vincentius Timothy](https://registry.jsonresume.org/vincentimo). Originally published on [Appflowy](https://appflowy.com/41518cd2-22c3-48b9-bd3e-9ffeac63d8d0/2025-02-21-SC-feb534c3-477a-4d2b-9345-047777925a47).
+By [Vincentius Timothy](https://registry.jsonresume.org/vincentimo). Originally published on [AppFlowy](https://appflowy.com/41518cd2-22c3-48b9-bd3e-9ffeac63d8d0/2025-02-21-SC-feb534c3-477a-4d2b-9345-047777925a47).
 
 <!-- toc-gitlab:start mode=full -->
 ## Contents<br>
