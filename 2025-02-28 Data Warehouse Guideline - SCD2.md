@@ -122,7 +122,7 @@ What happened to this table?
 1. In the last row of an entity, the `end_time` and `is_current` are updated to the `begin_time` of the next row's `begin_time` and `FALSE`, respectively.
 2. New rows are added to store the newest changes, where the `end_time` follows the previous rules.
 
-> An SCD2 table stores historical data. It is enriched with `begin_time`, `end_time`, and `is_current` to accurately pinpoint when a state exactly happened.
+> [!NOTE] <!--easygit-callout:original=INFO,collapse=--> An SCD2 table stores historical data. It is enriched with `begin_time`, `end_time`, and `is_current` to accurately pinpoint when a state exactly happened.
 
 ## How to use an SCD2 table?
 
@@ -161,7 +161,7 @@ What happened in this query?
 
 1. Filter `is_current` is used because it represents the current state.
 
-> To get the current state of an entity from an SCD2 table, use filter `is_current`.
+> [!NOTE] <!--easygit-callout:original=INFO,collapse=--> To get the current state of an entity from an SCD2 table, use filter `is_current`.
 
 ### Use case 2: Getting the state of an entity during a specific timestamp
 
@@ -227,7 +227,7 @@ What happened in this query?
 4. `end_time` is compared with `<` operator because `end_time` is exclusive.
 5. This is why the last row of `end_time` is not assigned `NULL`. The query will be slightly more complex to handle it.
 
-> To get the state of an entity stored on an SCD2 table during an event, make sure to join not only the business key but also `begin_time` and `end_time`.
+> [!NOTE] <!--easygit-callout:original=INFO,collapse=--> To get the state of an entity stored on an SCD2 table during an event, make sure to join not only the business key but also `begin_time` and `end_time`.
 
 ## How to develop an SCD2 table?
 
