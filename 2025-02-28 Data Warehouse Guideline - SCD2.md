@@ -92,10 +92,9 @@ How to read this table?
 3. `end_time`: The timestamp (exclusive) that denotes when a state ends.
 4. `is_current`: Indicator if a row represents the current state.
 
-Notes:
-
-1. The `end_time` of row-[n] must always be the same as the `begin_time` of row-[n+1], except for the last row of an entity (i.e., the row where `is_current` is `TRUE`). In this case, it is assigned a timestamp in the far future. In this example, it's `9999-12-31 00:00:00`.
-2. Why don't we just assign `NULL` to the last row of `end_time`? It will cause more complexity when using the SCD2 table.
+> [!NOTE]
+> 1. The `end_time` of row-[n] must always be the same as the `begin_time` of row-[n+1], except for the last row of an entity (i.e., the row where `is_current` is `TRUE`). In this case, it is assigned a timestamp in the far future. In this example, it's `9999-12-31 00:00:00`.
+> 2. Why don't we just assign `NULL` to the last row of `end_time`? It will cause more complexity when using the SCD2 table.
 
 Now consider a scenario where Jimothan committed fraud.
 
@@ -294,9 +293,8 @@ What happened in this query?
 2. `is_current` is `TRUE` only in the last row of an entity. That's why we compare the result of 1-parameter `LEAD()` to `NULL`.
 3. `WINDOW`: We use named window to make the query performance more efficient, because `end_time` and `is_current` use the same window definition.
 
-Notes:
-
-1. You must make sure that `begin_time` never contains `NULL` values nor duplicate values. (Why? Please deduce it as an exercise.) The query above assumes `update_time` doesn't contain `NULL` values—if it does, a viable strategy is to use `COALESCE(update_time, create_time) AS begin_time`.
+> [!NOTE]
+> You must make sure that `begin_time` never contains `NULL` values nor duplicate values. (Why? Please deduce it as an exercise.) The query above assumes `update_time` doesn't contain `NULL` values—if it does, a viable strategy is to use `COALESCE(update_time, create_time) AS begin_time`.
 
 ### Use case 2: There is 1 source; tracking 1 column; other columns are updated
 
@@ -401,9 +399,8 @@ What happened in this query?
 | 1       | Jakarta | 2024-10-11 06:00:00 | 5   | `NULL`      | ✅ The value changes        |
 | 1       | Jakarta | 2024-10-12 06:00:00 | 6   | Jakarta     | ❌ The value doesn't change |
 
-Notes:
-
-1. Different SQL dialect might implement null-safe equal operator differently. Depending on your SQL dialect, here's another popular way to do this: `NOT(address <=> lag_address)`.
+> [!NOTE]
+> Different SQL dialect might implement null-safe equal operator differently. Depending on your SQL dialect, here's another popular way to do this: `NOT(address <=> lag_address)`.
 
 ### Use case 3: There is 1 source; tracking > 1 columns; other columns are updated
 
@@ -568,9 +565,8 @@ What happened in this query?
 2. `ORDER BY begin_time, user_history_id DESC`: If two rows have the same `begin_time`, we want to pick the latest `user_history_id`.
 3. `WHERE`: We want to pick `begin_time` with different values. Feel free to verify the logic with the same approach as use case 2.
 
-Notes:
-
-1. Not all tables might have `user_history_id`. In this case, find another column that can be used to order `lag_info`. For example, if you use [change data capture](https://en.wikipedia.org/wiki/Change_data_capture) (CDC), you can pick the time when the change was detected (e.g., on Debezium, you can use `__source_ts_ms`).
+> [!NOTE]
+> Not all tables might have `user_history_id`. In this case, find another column that can be used to order `lag_info`. For example, if you use [change data capture](https://en.wikipedia.org/wiki/Change_data_capture) (CDC), you can pick the time when the change was detected (e.g., on Debezium, you can use `__source_ts_ms`).
 
 ### Use case 5: There is 1 source; tracking > 1 columns; there is hard-deletion
 
@@ -945,9 +941,8 @@ What happened in this query?
 3. CTE `timeline`: An efficient approach to unify multiple sources to create an SCD2 table is to use unified timeline, inspired from [Minh Ngo's post in 2023](https://infinitelambda.com/multitable-scd2-joins/). The first step is to union the `begin_time` from all sources. We use `UNION DISTINCT` in case some sources contain same value for `begin_time`—remember, `begin_time` is a primary key of an SCD2 table.
 4. Main query: The second step of the unified timeline approach is to get the relevant information from all sources. We do this by joining the `timeline` with all sources with the very same method as "How to use an SCD2 table?", use case 2. Also, in making the final SCD2 table, don't forget to create both `end_time` and `is_current`.
 
-Notes:
-
-1. You can expand the logic as required by the user. For example, the user wants only one `status` column with the following `CASE WHEN` logic. In this case, the last four rows will contain duplicated rows: two rows for each `ON_APPEAL` and `ACTIVE` status. You'll need to remove duplicating rows with the approach introduced in use case 2.
+> [!NOTE]
+> You can expand the logic as required by the user. For example, the user wants only one `status` column with the following `CASE WHEN` logic. In this case, the last four rows will contain duplicated rows: two rows for each `ON_APPEAL` and `ACTIVE` status. You'll need to remove duplicating rows with the approach introduced in use case 2.
 
 ```sql
 ...
@@ -1211,9 +1206,8 @@ What happened in this query?
 	2. Part 2: To get the source data which have been processed as usual up to use case 6.
 	3. By unioning these two parts, we capture the full state of the SCD2 table.
 
-Notes:
-
-1. In the example above, dates such as 2024-10-13 00:00:00 and 2024-10-14 00:00:00 are hardcoded. In the real production pipeline, use variables (e.g., [Airflow variables](https://airflow.apache.org/docs/apache-airflow/stable/templates-ref.html#variables)) for filtering the date, which then will be rendered as actual dates. This will make it easier for backfilling purposes.
+> [!NOTE]
+> In the example above, dates such as 2024-10-13 00:00:00 and 2024-10-14 00:00:00 are hardcoded. In the real production pipeline, use variables (e.g., [Airflow variables](https://airflow.apache.org/docs/apache-airflow/stable/templates-ref.html#variables)) for filtering the date, which then will be rendered as actual dates. This will make it easier for backfilling purposes.
 
 ## Summary
 
