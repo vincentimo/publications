@@ -298,19 +298,19 @@ WITH
 		UNION ALL SELECT NULL, 'Gamma'
 	)
 SELECT
-    get_transaction.id,
-    get_transaction.transaction_amt,
-    get_transaction.customer_id
+	get_transaction.id,
+	get_transaction.transaction_amt,
+	get_transaction.customer_id
 FROM
-    get_transaction
+	get_transaction
 WHERE
-    NOT EXISTS (
-        SELECT
-	        1
-        FROM
-	        get_customer
-        WHERE
-	        get_transaction.customer_id = get_customer.id
+	NOT EXISTS (
+		SELECT
+			1
+		FROM
+			get_customer
+		WHERE
+			get_transaction.customer_id = get_customer.id
     );
 ```
 ### Why does the main query return 0 rows if the subquery returns a single `NULL` value?
