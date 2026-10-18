@@ -916,7 +916,9 @@ The database optimizer acts like an obsessively thorough project manager, rearra
 > [!NOTE]
 > On [PostgreSQL](https://www.postgresql.org/docs/current/sql-explain.html), use `EXPLAIN` and `EXPLAIN ANALYZE` to inspect your query execution plan (or just stare at it in absolute horror when a missing index turns your query into a full table scan that melts your database 💀).
 
-### 4.6 Causal inference + confounding variables
+## Group 5: Others
+
+### 5.1 Causal inference + confounding variables
 
 When data scientists analyze data, they don't just want to know if two things happen together ([correlation](https://en.wikipedia.org/wiki/Correlation)). They want to know if one thing actually **causes** the other (causation). To do this without accidentally ruining science, researchers use causal DAGs to map out [confounding variables](https://book.the-turing-way.org/project-design/risks-of-bias/confounding-variables/).
 
@@ -959,9 +961,9 @@ If you fail to map your data as a DAG and control for these variables, your stat
 > [!NOTE]
 > In causal inference, drawing the wrong DAG can lead to [**collider bias**](https://catalogofbias.org/biases/collider-bias/) or [**overadjustment bias**](https://pmc.ncbi.nlm.nih.gov/articles/PMC2744485/), fancy terms for accidentally breaking your own analysis because you forgot how arrows point 💀
 
-### 4.7 DAG-based cryptocurrencies
+### 5.2 DAG-based cryptocurrencies
 
-Moving beyond traditional databases, some distributed-ledger designs use DAGs rather than relying only on a single linear chain. IOTA's original [Tangle](https://en.wikipedia.org/wiki/IOTA_(technology)) is a well-known example, though IOTA substantially changed its mainnet protocol with the [Rebased upgrade in May 2025](https://blog.iota.org/rebased-mainnet-upgrade/).
+Some distributed-ledger designs use DAGs rather than relying only on a single linear chain. IOTA's original [Tangle](https://en.wikipedia.org/wiki/IOTA_(technology)) is a well-known example, though IOTA substantially changed its mainnet protocol with the [Rebased upgrade in May 2025](https://blog.iota.org/rebased-mainnet-upgrade/).
 
 ```mermaid
 ---
