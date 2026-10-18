@@ -736,7 +736,7 @@ flowchart LR
 
 Build tools like [Make](https://people.cs.pitt.edu/~znati/Courses/CogNet/related/makeintro.html) or [Bazel](https://bazel.build/concepts/dependencies) use DAGs to figure out which files changed so they only recompile what is strictly necessary, saving developers from waiting hours for code to build.
 
-### 4.4 Data warehouse
+### 4.4 Data warehouse pipelines
 
 Once the app is built and running, it generates data, which can be used to produce [Business Intelligence (BI)](https://en.wikipedia.org/wiki/Business_intelligence). To do that, the data passes through three broad stages:
 
