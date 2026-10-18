@@ -8,3 +8,4 @@ Welcome to Vincent's publications! Here are some articles I have written:
 4. [2025-03-28 Setup Generative AI Locally on Windows and macOS](<2025-03-28 Setup Generative AI Locally on Windows and macOS.md>)
 5. [2026-08-25 Progressive Overload](<2026-08-25 Progressive Overload.md>)
 6. [2026-10-03 Data Warehouse Guideline - Null Handling](<2026-10-03 Data Warehouse Guideline - Null Handling.md>)
+7. [2026-10-19 Everything is a DAG!](<2026-10-19 Everything is a DAG!.md>)
