@@ -829,7 +829,7 @@ To keep the scheduled work acyclic while preserving dependencies, we can represe
 
 ```mermaid
 ---
-title: Data Pipeline Multi-DAGs
+title: Data Warehouse Pipeline Multi-DAGs
 config:
     layout: elk
 ---
@@ -888,7 +888,7 @@ Data flows downstream from ingestion through transformation to delivery. If a ta
 
 ### 4.5 Query execution plans
 
-Underneath those data pipelines, when you write an SQL query (like the ones powering our `t_dwd_transaction` transformation process), your database doesn't just execute it blindly. It builds a [query execution plan](https://en.wikipedia.org/wiki/Query_plan).
+Underneath those data warehouse pipelines, when you write an SQL query (like the ones powering our `t_dwd_transaction` transformation process), your database doesn't just execute it blindly. It builds a [query execution plan](https://en.wikipedia.org/wiki/Query_plan).
 
 ```mermaid
 ---
