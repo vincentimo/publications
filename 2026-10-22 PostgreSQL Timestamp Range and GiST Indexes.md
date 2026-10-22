@@ -1,5 +1,7 @@
 # 2026-10-22 PostgreSQL Timestamp Range and GiST Indexes
 
+By [Vincentius Timothy](https://registry.jsonresume.org/vincentimo).
+
 <!-- toc-gitlab:start mode=full -->
 ## Contents<br>
 1. [Use case](#use-case)
