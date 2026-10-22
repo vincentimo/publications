@@ -14,28 +14,28 @@
 ```mermaid
 flowchart LR
     %% Nodes
-    subgraph oltp["OLTP"]
+    subgraph oltp["OLTP (Real-time)"]
         oltp-n1-1(["transaction"])
         oltp-n1-2(["product\n(not shown)"])
     end
-    subgraph ods["ODS"]
+    subgraph ods["ODS (Hourly)"]
         ods-n1-1(["ods_transaction"])
         ods-n1-2(["ods_product\n(not shown)"])
     end
-    subgraph cdm["CDM"]
+    subgraph cdm["CDM (Daily)"]
         cdm-n1-2(["dim_product\n(not shown)"])
         cdm-n2-1(["dwd_transaction"])
     end
-    subgraph ads["ADS"]
+    subgraph ads["ADS (Monthly)"]
         ads-n1-1(["dm_transaction"])
     end
     
     %% Edges
-    oltp-n1-1 --> ods-n1-1
-    oltp-n1-2 --> ods-n1-2
-    ods-n1-2 --> cdm-n1-2
-    ods-n1-1 & cdm-n1-2 --> cdm-n2-1
-    cdm-n2-1 --> ads-n1-1
+    oltp-n1-1 -- ingest --> ods-n1-1
+    oltp-n1-2 -- ingest --> ods-n1-2
+    ods-n1-2 -- transform --> cdm-n1-2
+    ods-n1-1 & cdm-n1-2 -- transform --> cdm-n2-1
+    cdm-n2-1 -- transform --> ads-n1-1
 ```
 
 ## Data ingestion (hourly)
