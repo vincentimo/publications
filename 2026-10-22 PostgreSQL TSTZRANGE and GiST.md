@@ -31,11 +31,11 @@ flowchart LR
     end
     
     %% Edges
-    oltp-n1-1 -- ingest --> ods-n1-1
-    oltp-n1-2 -- ingest --> ods-n1-2
-    ods-n1-2 -- transform --> cdm-n1-2
-    ods-n1-1 & cdm-n1-2 -- transform --> cdm-n2-1
-    cdm-n2-1 -- transform --> ads-n1-1
+    oltp-n1-1 --> ods-n1-1
+    oltp-n1-2 --> ods-n1-2
+    ods-n1-2 --> cdm-n1-2
+    ods-n1-1 & cdm-n1-2 --> cdm-n2-1
+    cdm-n2-1 --> ads-n1-1
 ```
 
 ## Data ingestion (hourly)
