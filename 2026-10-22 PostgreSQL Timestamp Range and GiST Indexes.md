@@ -1,4 +1,4 @@
-# 2026-10-22 PostgreSQL TSTZRANGE and GiST
+# 2026-10-22 PostgreSQL Timestamp Range and GiST Indexes
 
 <!-- toc-gitlab:start mode=full -->
 ## Contents<br>
