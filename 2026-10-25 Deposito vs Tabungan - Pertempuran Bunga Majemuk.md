@@ -316,17 +316,9 @@ $$P_t=P_0\left(1+\cfrac{r}{n}\right)^t$$
 
 ### Bunga di akhir periode ke-*t*
 
-Bunga di akhir periode ke- $t$ = saldo di akhir periode tersebut - saldo di akhir periode sebelumnya.
+Bunga di akhir periode ke- $t$ = saldo di akhir periode sebelumnya × suku bunga 1 periode.
 
-$$i_t={\color{magenta}{P_t}}-P_{t-1}$$
-
-Kita tahu bahwa $P_t=P_{t-1}\left(1+\cfrac{r}{n}\right)$, sehingga:
-
-$$\begin{align}
-i_t &= P_{t-1}\left(1+\cfrac{r}{n}\right)-P_{t-1} \\
-&= P_{t-1}\left(1+\cfrac{r}{n}-1\right) \\
-&= {\color{magenta}{P_{t-1}}}\left(\cfrac{r}{n}\right)
-\end{align}$$
+$$i_t = {\color{magenta}{P_{t-1}}}\times\cfrac{r}{n}$$
 
 Kita tahu bahwa $P_{t-1}=P_0\left(1+\cfrac{r}{n}\right)^{t-1}$, sehingga:
 
