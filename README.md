@@ -10,4 +10,4 @@ Welcome to Vincent's publications! Here are some articles I have written:
 6. [2026-10-03 Data Warehouse Guideline - Null Handling](<2026-10-03 Data Warehouse Guideline - Null Handling.md>)
 7. [2026-10-19 Everything is a DAG!](<2026-10-19 Everything is a DAG!.md>)
 8. [2026-10-22 PostgreSQL Timestamp Range and GiST Indexes](<2026-10-22 PostgreSQL Timestamp Range and GiST Indexes.md>)
-9. [2026-10-25 Deposito vs Tabungan - Pertempuran Bunga Majemuk](<2026-10-25 Deposito vs Tabungan - Pertempuran Bunga Majemuk.md>)
+9. [2026-10-25 Deposito vs Tabungan - Perbandingan Bunga Majemuk](<2026-10-25 Deposito vs Tabungan - Perbandingan Bunga Majemuk.md>)

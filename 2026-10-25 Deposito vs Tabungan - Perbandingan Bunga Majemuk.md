@@ -1,4 +1,4 @@
-# 2026-10-25 Deposito vs Tabungan - Pertempuran Bunga Majemuk
+# 2026-10-25 Deposito vs Tabungan - Perbandingan Bunga Majemuk
 
 Oleh [Vincentius Timothy](https://registry.jsonresume.org/vincentimo).
 
