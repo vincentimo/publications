@@ -153,6 +153,60 @@ Dengan cara yang sama, kita bisa mendapatkan saldo akhir setiap bulan.
 | 11    | $\text{Rp}103.727.762,03$ | $\text{Rp}104.108.097,16$ | $\text{Rp}380.335,13$               |
 | 12    | $\text{Rp}104.108.097,16$ | $\text{Rp}104.489.826,85$ | $\text{Rp}381.729,69$               |
 
+```mermaid
+---
+config:
+    xyChart:
+        showDataLabel: true
+        showDataLabelOutsideBar: true
+---
+xychart
+    title "Deposito Bulanan: Saldo Akhir per Bulan"
+    x-axis "Bulan" 1 --> 12
+    y-axis "Saldo Akhir (Juta Rupiah)" 100 --> 105
+    bar [100.37, 100.73, 101.10, 101.47, 101.85, 102.22, 102.60, 102.97, 103.35, 103.73, 104.11, 104.49]
+    line [100.37, 100.73, 101.10, 101.47, 101.85, 102.22, 102.60, 102.97, 103.35, 103.73, 104.11, 104.49]
+```
+
+```mermaid
+xychart
+    title "Deposito Bulanan: Bunga per Bulan"
+    x-axis "Bulan" 1 --> 12
+    y-axis "Bunga (Ribu Rupiah)" 0 --> 4500
+    bar "Bunga Kumulatif" [366.67, 734.68, 1104.04, 1474.75, 1846.83, 2220.27, 2595.07, 2971.26, 3348.82, 3727.76, 4108.10, 4489.83]
+    line [366.67, 734.68, 1104.04, 1474.75, 1846.83, 2220.27, 2595.07, 2971.26, 3348.82, 3727.76, 4108.10, 4489.83]
+    bar "Bunga" [366.67, 368.01, 369.36, 370.71, 372.07, 373.44, 374.81, 376.18, 377.56, 378.95, 380.34, 381.73]
+    line [366.67, 368.01, 369.36, 370.71, 372.07, 373.44, 374.81, 376.18, 377.56, 378.95, 380.34, 381.73]
+```
+
+Saldo akhir dan bunga akan [tumbuh secara eksponensial](https://id.wikipedia.org/wiki/Pertumbuhan_eksponensial). Mungkin akan lebih jelas jika depositonya diperpanjang terus sampai 10 tahun.
+
+```mermaid
+---
+config:
+    xyChart:
+        showDataLabel: true
+        showDataLabelOutsideBar: true
+---
+xychart
+    title "Deposito Bulanan: Saldo Akhir per Tahun"
+    x-axis "Tahun" 1 --> 10
+    y-axis "Saldo Akhir (Juta Rupiah)" 100 --> 160
+    bar [104.49, 109.18, 114.08, 119.21, 124.56, 130.15, 135.99, 142.10, 148.48, 155.15]
+    line [104.49, 109.18, 114.08, 119.21, 124.56, 130.15, 135.99, 142.10, 148.48, 155.15]
+```
+
+```mermaid
+xychart
+    title "Deposito Bulanan: Bunga per Tahun"
+    x-axis "Tahun" 1 --> 10
+    y-axis "Bunga (Juta Rupiah)" 0 --> 56
+    bar "Bunga Kumulatif" [4.49, 9.18, 14.08, 19.21, 24.56, 30.15, 35.99, 42.10, 48.48, 55.15]
+    line [4.49, 9.18, 14.08, 19.21, 24.56, 30.15, 35.99, 42.10, 48.48, 55.15]
+    bar "Bunga" [4.49, 4.69, 4.90, 5.12, 5.35, 5.59, 5.84, 6.11, 6.38, 6.67]
+    line [4.49, 4.69, 4.90, 5.12, 5.35, 5.59, 5.84, 6.11, 6.38, 6.67]
+```
+
 ## Deposito lainnya
 
 Sekarang, kita sudah bisa menghitung saldo di akhir 1 tahun untuk deposito lainnya. **Bedanya adalah definisi periodenya.**
@@ -183,15 +237,15 @@ Perhatikan bahwa deposito 6 bulanan (saldo akhir $\text{Rp}104.857.600,00$) lebi
 
 Hmm, dengan suku bunga tahunan yang sama, seharusnya saldo akhirnya lebih tinggi jika proses majemuknya semakin sering? Mari kita buktikan.
 
-| Majemuk     | $n$: Berapa kali dalam 1 tahun?                         | Formula saldo akhir                                                                        | $P_t$: Saldo akhir        |
-| ----------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------- |
-| Per tahun   | $\cfrac{360}{360}=1$                                    | $P_1=\text{Rp}100.000.000\left(1+\cfrac{4,80％}{1}\right)^1$                                | $\text{Rp}104.800.000,00$ |
-| Per 6 bulan | $\cfrac{360}{180}=2$                                    | $P_2=\text{Rp}100.000.000\left(1+\cfrac{4,80％}{2}\right)^2$                                | $\text{Rp}104.857.600,00$ |
-| Per 3 bulan | $\cfrac{360}{90}=4$                                     | $P_4=\text{Rp}100.000.000\left(1+\cfrac{4,80％}{4}\right)^4$                                | $\text{Rp}104.887.093,27$ |
-| Per bulan   | $\cfrac{360}{30}=12$                                    | $P_{12}=\text{Rp}100.000.000\left(1+\cfrac{4,80％}{12}\right)^{12}$                         | $\text{Rp}104.907.020,75$ |
-| Per hari    | $\cfrac{360}{1}=360$                                    | $P_{360}=\text{Rp}100.000.000\left(1+\cfrac{4,80％}{360}\right)^{360}$                      | $\text{Rp}104.916.729,83$ |
-| Per jam     | $\cfrac{360}{\cfrac{1}{24}}=8 640$                      | $P_{8 640}=\text{Rp}100.000.000\left(1+\cfrac{4,80％}{8 640}\right)^{8 640}$                | $\text{Rp}104.917.051,54$ |
-| Per detik   | $\cfrac{360}{\cfrac{1}{24\times60\times60}}=31 104 000$ | $P_{31 104 000}=\text{Rp}100.000.000\left(1+\cfrac{4,80％}{31 104 000}\right)^{31 104 000}$ | $\text{Rp}104.917.065,22$ |
+| Periode Majemuk | $n$: Berapa kali dalam 1 tahun?                         | Formula saldo akhir                                                                        | $P_t$: Saldo akhir        |
+| --------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------- |
+| Per tahun       | $\cfrac{360}{360}=1$                                    | $P_1=\text{Rp}100.000.000\left(1+\cfrac{4,80％}{1}\right)^1$                                | $\text{Rp}104.800.000,00$ |
+| Per 6 bulan     | $\cfrac{360}{180}=2$                                    | $P_2=\text{Rp}100.000.000\left(1+\cfrac{4,80％}{2}\right)^2$                                | $\text{Rp}104.857.600,00$ |
+| Per 3 bulan     | $\cfrac{360}{90}=4$                                     | $P_4=\text{Rp}100.000.000\left(1+\cfrac{4,80％}{4}\right)^4$                                | $\text{Rp}104.887.093,27$ |
+| Per bulan       | $\cfrac{360}{30}=12$                                    | $P_{12}=\text{Rp}100.000.000\left(1+\cfrac{4,80％}{12}\right)^{12}$                         | $\text{Rp}104.907.020,75$ |
+| Per hari        | $\cfrac{360}{1}=360$                                    | $P_{360}=\text{Rp}100.000.000\left(1+\cfrac{4,80％}{360}\right)^{360}$                      | $\text{Rp}104.916.729,83$ |
+| Per jam         | $\cfrac{360}{\cfrac{1}{24}}=8 640$                      | $P_{8 640}=\text{Rp}100.000.000\left(1+\cfrac{4,80％}{8 640}\right)^{8 640}$                | $\text{Rp}104.917.051,54$ |
+| Per detik       | $\cfrac{360}{\cfrac{1}{24\times60\times60}}=31 104 000$ | $P_{31 104 000}=\text{Rp}100.000.000\left(1+\cfrac{4,80％}{31 104 000}\right)^{31 104 000}$ | $\text{Rp}104.917.065,22$ |
 
 **Saldo akhirnya lebih tinggi jika proses majemuknya semakin sering.** Sekarang, bagaimana jika proses majemuknya semakin sering, sampai mendekati tak hingga? Inilah yang disebut dengan **majemuk kontinu**.
 
@@ -218,6 +272,20 @@ P_t &= P_0\exp(r) \\
 
 Terbukti bahwa **proses majemuk kontinu menghasilkan saldo akhir yang lebih tinggi daripada proses majemuk diskret** (tidak kontinu), bahkan dibandingkan dengan proses majemuk diskret per detik.
 
+```mermaid
+---
+config:
+    xyChart:
+        showDataLabel: true
+        showDataLabelOutsideBar: true
+---
+xychart
+    title "Pengaruh Periode Majemuk terhadap Saldo Akhir (Suku Bunga 4.80%/Tahun)"
+    x-axis "Periode Majemuk" ["Per tahun", "Per 6 bulan", "Per 3 bulan", "Per bulan", "Per hari", "Per jam", "Per detik", Kontinu]
+    y-axis "Saldo Akhir (Juta Rupiah)" 104.7 --> 105
+    bar [104.80, 104.86, 104.89, 104.91, 104.92, 104.92, 104.92, 104.92]
+```
+
 Sekarang, mari kita hitung saldo akhir untuk tabungan, jika suku bunganya $4,20％$ (sesuai yang ditawarkan Bank Sawan).
 
 $$\begin{align}
@@ -237,6 +305,20 @@ Mari kita bandingkan keseluruhan produk investasi yang ditawarkan Bank Sawan, de
 | Deposito | 3 bulanan                                 |                   $5,75％$                   |                   $4,60％$                   | $\text{Rp}104.679.960,10$      |
 | Deposito | Bulanan                                   |                   $5,50％$                   |                   $4,40％$                   | $\text{Rp}104.489.826,85$      |
 | Tabungan | Kontinu                                   |                   $5,25％$                   |                   $4,20％$                   | $\text{Rp}104.289.447,88$      |
+
+```mermaid
+---
+config:
+    xyChart:
+        showDataLabel: true
+        showDataLabelOutsideBar: true
+---
+xychart
+    title "Perbandingan Saldo Akhir Produk Bank Sawan"
+    x-axis "Produk" ["Deposito tahunan", "Deposito 6 bulanan", "Deposito 3 bulanan", "Deposito bulanan", "Tabungan"]
+    y-axis "Saldo Akhir (Juta Rupiah)" 104 --> 105
+    bar [104.80, 104.86, 104.68, 104.49, 104.29]
+```
 
 > [!NOTE]
 > **Produk yang sebaiknya kamu pilih adalah deposito 6 bulanan**, karena hasil saldo akhirnya yang paling tinggi, dan uangnya sudah pasti tidak akan digunakan dalam 1 tahun ke depan.
