@@ -325,7 +325,7 @@ xychart
 
 Umumnya, bank ingin mendapatkan dana yang lebih pasti. Ini sebabnya deposito yang tenornya lebih lama umumnya memiliki suku bunga yang lebih tinggi, apalagi dibandingkan tabungan.
 
-Namun, di Bank Sawan, deposito tahunan dan 6 bulanan memiliki suku bunga tahunan yang sama. Akibatnya, nasabah akan lebih memilih deposito 6 bulan daripada deposito tahunan, karena lebih [likuid](https://pegadaian.co.id/artikel/keuangan/aset-likuid-adalah). Ya, sudahlah 🤷
+Namun, di Bank Sawan, deposito tahunan dan 6 bulanan memiliki suku bunga tahunan yang sama. Akibatnya, nasabah akan lebih memilih deposito 6 bulan daripada deposito tahunan, karena lebih [likuid](https://pegadaian.co.id/artikel/keuangan/aset-likuid-adalah). Kecuali, ada penyebab lain, misalnya [fenomena kurva imbal hasil terbalik](https://www.youtube.com/watch?v=njX_wT97T6E) ([*inverted yield curve*](https://en.wikipedia.org/wiki/Inverted_yield_curve)).
 
 ## Lampiran: Penjelasan formula
 
